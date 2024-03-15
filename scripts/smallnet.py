@@ -34,11 +34,14 @@ class Net(nn.Module):
         return self.model(x)
 
 
-def split_dataset(dataset, num_train_per_class, num_test_per_class):
+def split_dataset(dataset, num_train_per_class, num_test_per_class=None):
     train_indices = []
     test_indices = []
     for i in range(10):
         indices = torch.where(dataset.targets == i)[0]
         train_indices.extend(indices[:num_train_per_class])
-        test_indices.extend(indices[num_train_per_class:num_train_per_class+num_test_per_class])
+        if num_test_per_class:
+            test_indices.extend(indices[num_train_per_class:num_train_per_class+num_test_per_class])
+        else:
+            test_indices.extend(indices[num_train_per_class:])
     return train_indices, test_indices
