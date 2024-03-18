@@ -8,31 +8,6 @@ import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 
 
-class LabeledDataset(Dataset):
-    def __init__(self, X, y, drop_label=0.0):
-        assert len(X) == len(y)
-        self.X = X.astype("float32")
-        self.y = y.astype("int")
-        self.drop_label = drop_label
-        self.null_label = int(max(y)) + 1
-
-    def __len__(self):
-        return len(self.X)
-    
-    def __getitem__(self, idx):
-        x, y = self.X[idx], self.y[idx]
-        if torch.rand(1) < self.drop_label:
-            y = self.null_label
-        return {"x": x, "y": y}
-    
-def get_labeled_data_loader(X, y, batch_size=1, shuffle=False, drop_label=0.0):
-    return DataLoader(
-        LabeledDataset(X, y, drop_label),
-        batch_size=batch_size,
-        shuffle=shuffle,
-    )
-
-
 class MyBlock(nn.Module):
     def __init__(self, shape, in_c, out_c, kernel_size=3, stride=1, padding=1, activation=None, normalize=True):
         super(MyBlock, self).__init__()
