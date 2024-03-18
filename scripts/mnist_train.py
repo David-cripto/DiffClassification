@@ -1,7 +1,7 @@
 import torch as th
 import random
 from diffclassification.diffusion import DDPM
-from diffclassification.unet import MyUNet
+from diffclassification.unet import MyUnet
 from diffclassification.mnistdataset import get_train_data_loader
 from diffclassification.utils import get_beta_schedule, train_model
 import numpy as np
@@ -18,7 +18,7 @@ def main(args):
     th.manual_seed(0)
     random.seed(0)
 
-    model = MyUNet().to("cuda")
+    model = MyUnet().to("cuda")
 
     ddpm = DDPM(betas=get_beta_schedule(T), model=model)
     dataloader = get_train_data_loader(args.path_to_mnist, batch_size=BATCH_SIZE, shuffle=True)

@@ -9,6 +9,9 @@ def get_beta_schedule(num_diffusion_timesteps: int) -> th.Tensor:
     betas = th.from_numpy(betas).double()
     return betas
 
+def unnormalize(x):
+  return (x + 1)/2
+
 def train_model(
     ddpm,
     dataloader,
