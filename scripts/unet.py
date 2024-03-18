@@ -60,7 +60,7 @@ class MyUNet(nn.Module):
         self.time_embed.weight.data = sinusoidal_embedding(n_steps, time_emb_dim)
         self.time_embed.requires_grad_(False)
         self.y_embed = nn.Embedding(10 + int(use_null_cond), time_emb_dim)
-        self.is_y_cond = True
+        self.is_y_cond = False
 
         # First half
         self.te1 = self._make_te(time_emb_dim, 1)
