@@ -41,14 +41,14 @@ class DDPM(nn.Module):
 
 
     @th.no_grad()
-    def sample(self, y: th.Tensor) -> th.Tensor:
+    def sample(self, y: th.Tensor, num_samples) -> th.Tensor:
         assert self.shape is not None
         if self.ema_counter < self.update_ema_after:
             model = self.model
         else:
             model = self.ema
-
-        num_samples = y.shape[0]
+        if y is not None:
+            assert num_samples == y.shape[0]
         x = th.randn((num_samples, *self.shape), device=self.device, dtype=th.float32) # Returns a tensor filled with random numbers from a normal distribution with mean 0 and variance 1
         indices = list(range(self.num_timesteps))[::-1]
 

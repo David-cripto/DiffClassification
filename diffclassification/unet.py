@@ -26,7 +26,7 @@ class MyBlock(nn.Module):
         return out
 
 
-class MyUNet(nn.Module):
+class MyUnet(nn.Module):
     def __init__(self, n_steps=1000, time_emb_dim=128, use_null_cond=False):
         super().__init__()
 
