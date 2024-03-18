@@ -36,7 +36,7 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
                     prog='MNIST train',
-                    description='train diffusion on mnist dataset and save wights in path')
+                    description='train diffusion on mnist dataset and save weights in path_to_save')
     parser.add_argument("path_to_mnist", type=str)
     parser.add_argument("path_to_save", type=str)
     args = parser.parse_args()
