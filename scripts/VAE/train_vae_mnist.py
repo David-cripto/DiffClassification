@@ -3,7 +3,7 @@ from tqdm import tqdm
 import torch
 import torch.nn.functional as F
 from torchvision import transforms, datasets
-from models.vae_mnist import ConvVAE
+from diffclassification.vae_mnist import ConvVAE
 import argparse
 
 

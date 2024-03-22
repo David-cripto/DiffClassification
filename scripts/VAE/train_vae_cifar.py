@@ -3,7 +3,7 @@ import torch
 import torch.optim as optim
 from tqdm import tqdm
 from torchvision import transforms, datasets
-from models.vae_cifar import ConvVAE
+from diffclassification.vae_cifar import ConvVAE
 import argparse
 
 DEVICE = 'cuda'

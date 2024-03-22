@@ -1,5 +1,5 @@
 import torch
-import models.vae_mnist as vae_mnist
+import diffclassification.vae_mnist as vae_mnist
 from diffclassification.smallnet import LinearNet, Net, split_dataset
 from torch.utils.data import DataLoader, Dataset, Subset
 from tqdm import tqdm
@@ -14,18 +14,20 @@ SIZE_PER_CLASS = 2
 EPOCHS = 90
 
 activations_encoder = {
-    'layer1' : None,
-    'layer2' : None,
-    'layer3' : None,
-    'layer4' : None,
+    'layer1' : torch.tensor([]),
+    'layer2' : torch.tensor([]),
+    'layer3' : torch.tensor([]),
+    'layer4' : torch.tensor([]),
 }
 
 activations_decoder = {
-    'layer1' : None,
-    'layer2' : None,
-    'layer3' : None,
-    'layer4' : None,
+    'layer1' : torch.tensor([]),
+    'layer2' : torch.tensor([]),
+    'layer3' : torch.tensor([]),
+    'layer4' : torch.tensor([]),
 }
+
+
 # activations_encoder = {}
 def get_activation_foo(name, activations):
     def hookFoo(model, input, output):
@@ -146,6 +148,16 @@ def main():
     conv_vae = vae_mnist.ConvVAE(latent_dim).to(device)
     conv_vae.load_state_dict(torch.load(PTH, map_location=device))
 
+    conv_vae.encoder[0].register_forward_hook(get_activation_foo('layer1', activations_encoder))
+    conv_vae.encoder[2].register_forward_hook(get_activation_foo('layer2', activations_encoder))
+    conv_vae.encoder[4].register_forward_hook(get_activation_foo('layer3', activations_encoder))
+    conv_vae.encoder[9].register_forward_hook(get_activation_foo('layer4', activations_encoder))
+
+    conv_vae.decoder[0].register_forward_hook(get_activation_foo_input('layer1', activations_decoder))
+    conv_vae.decoder[5].register_forward_hook(get_activation_foo_input('layer2', activations_decoder))
+    conv_vae.decoder[7].register_forward_hook(get_activation_foo_input('layer3', activations_decoder))
+    conv_vae.decoder[9].register_forward_hook(get_activation_foo_input('layer4', activations_decoder))
+
     input_size = 236
     num_classes = 10
 
@@ -165,7 +177,7 @@ if __name__ == '__main__':
     parser.add_argument('-p', '--path', type=str, help='Path of weights', default=PTH)
     parser.add_argument('-d', '--device', type=str, help='Device for training', default=DEVICE)
     parser.add_argument('-s', '--size_per_class', type=int, help='Number of images per class', default=SIZE_PER_CLASS)
-    parser.add_argument('-s', '--epochs', type=int, help='Number of epochs', default=EPOCHS)
+    parser.add_argument('-e', '--epochs', type=int, help='Number of epochs', default=EPOCHS)
 
     args = parser.parse_args()
 
