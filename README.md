@@ -120,6 +120,15 @@ options:
                         Laten space dimension
  ```
 
+
+#### Diffusion
+
+mnist_main.ipynb - loading pretrained weights of DDPM and feature extraction on MNIST dataset  
+
+CIFAR_10_Diffusion_new.ipynb - training DDPM and feature extraction on CIFAR-10 dataset 
+
+supervised.ipynb - training ResNet18 for comparising with small net trained on features extracted from DDPM on different train set sizes 
+
 ## Pretrained weights
 
 Pretrained VAE models: https://drive.google.com/drive/folders/1UrXq-gdDHtKQBUMxOc-oiawpqYo2ozga?usp=share_link
@@ -129,13 +138,6 @@ Pretrained diffusion model for CIFAR-10: https://drive.google.com/file/d/1ICLWfz
 
 Pretrained diffusion model for MNIST: https://drive.google.com/uc?id=1fSPB08M6aBNmhjRgSn3qpdq5hXl1Xhao
 
-#### Diffusion
-
-mnist_main.ipynb - loading pretrained weights of DDPM and feature extraction on MNIST dataset  
-
-CIFAR_10_Diffusion_new.ipynb - training DDPM and feature extraction on CIFAR-10 dataset 
-
-supervised.ipynb - training ResNet18 for comparising with small net trained on features extracted from DDPM on different train set sizes 
 
 
 
