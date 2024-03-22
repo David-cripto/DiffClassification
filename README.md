@@ -65,8 +65,7 @@ options:
   -e EPOCHS, --epochs EPOCHS
                         Number of epochs
    ```
-
-    ```bash
+```bash
 extract_features_train_smallnet_mnist.py [-h] [-p PATH] [-d DEVICE] [-s SIZE_PER_CLASS] [-e EPOCHS]
 
 options:
@@ -78,7 +77,7 @@ options:
                         Number of images per class
   -e EPOCHS, --epochs EPOCHS
                         Number of epochs
-    ```
+```
 
  ```bash
 train_vae_cifar.py [-h] [-d DEVICE] [-bs BATCH_SIZE] [-e EPOCHS] [-lr LR] [-ld LATENT_DIM]
