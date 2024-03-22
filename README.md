@@ -4,6 +4,7 @@
 
 Traditional supervised classification approaches limit the scalability and training efficiency of neural networks because they require significant human effort and computational resources to partition the data.
 
+The main goal of this research is to develop a method that reduces the need for manual annotation by training feature representations directly from unlabeled data.
 ## Concept
 
 ![image](https://github.com/David-cripto/DiffClassification/assets/78556639/cbe5f13e-c6f2-4021-bf86-dca3c87d5d6c)
