@@ -53,6 +53,62 @@ Training nonlinear (Linear+ReLU+Linear) model (since it was the best on MNIST) o
 
 ![image](https://github.com/David-cripto/DiffClassification/assets/78556639/8ea8a96e-5c4a-432f-8318-522985b39130)
 
+## Script Usage
+
+usage: extract_features_train_smallnet_cifar.py [-h] [-p PATH] [-d DEVICE] [-s SIZE_PER_CLASS] [-e EPOCHS]
+
+options:
+  -h, --help            show this help message and exit
+  -p PATH, --path PATH  Path of weights
+  -d DEVICE, --device DEVICE
+                        Device for training
+  -s SIZE_PER_CLASS, --size_per_class SIZE_PER_CLASS
+                        Number of images per class
+  -e EPOCHS, --epochs EPOCHS
+                        Number of epochs
+
+
+usage: extract_features_train_smallnet_mnist.py [-h] [-p PATH] [-d DEVICE] [-s SIZE_PER_CLASS] [-e EPOCHS]
+
+options:
+  -h, --help            show this help message and exit
+  -p PATH, --path PATH  Path of weights
+  -d DEVICE, --device DEVICE
+                        Device for training
+  -s SIZE_PER_CLASS, --size_per_class SIZE_PER_CLASS
+                        Number of images per class
+  -e EPOCHS, --epochs EPOCHS
+                        Number of epochs
+
+
+usage: train_vae_cifar.py [-h] [-d DEVICE] [-bs BATCH_SIZE] [-e EPOCHS] [-lr LR] [-ld LATENT_DIM]
+
+options:
+  -h, --help            show this help message and exit
+  -d DEVICE, --device DEVICE
+                        Device for training
+  -bs BATCH_SIZE, --batch_size BATCH_SIZE
+                        Batch size
+  -e EPOCHS, --epochs EPOCHS
+                        Number of epochs
+  -lr LR, --lr LR       Learning rate
+  -ld LATENT_DIM, --latent_dim LATENT_DIM
+                        Laten space dimension
+usage: train_vae_mnist.py [-h] [-d DEVICE] [-bs BATCH_SIZE] [-e EPOCHS] [-lr LR] [-ld LATENT_DIM]
+
+options:
+  -h, --help            show this help message and exit
+  -d DEVICE, --device DEVICE
+                        Device for training
+  -bs BATCH_SIZE, --batch_size BATCH_SIZE
+                        Batch size
+  -e EPOCHS, --epochs EPOCHS
+                        Number of epochs
+  -lr LR, --lr LR       Learning rate
+  -ld LATENT_DIM, --latent_dim LATENT_DIM
+                        Laten space dimension
+
+
 
 
 
