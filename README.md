@@ -43,7 +43,7 @@ Assessing the **separability of features** is an important step towards evaluati
 
 | MNIST dataset  |  CIFAR-10 dataset |
 |:-------------------------:|:-------------------:|
-| diffusion features  |  VAE features | diffusion features  |  VAE features |
+| diffusion features **(MNIST)** |  VAE features **(MNIST)** | diffusion features **(CIFAR-10)** |  VAE features **(CIFAR-10)** |
 |:-------------------------:|:-------------------:|:-------------------------:|:-------------------:|
 | ![MNIST](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-diff.PNG) | ![CIFAR-10](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-cifar.PNG) | ![MNIST](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-diff.PNG) | ![CIFAR-10](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-cifar.PNG) |
 
