@@ -115,3 +115,11 @@ options:
 
 
 
+
+## Developers
+- [Kamil Garifullin](https://github.com/kzGarifullin)
+- [Victoria Zinkovich](https://github.com/victoriazinkovich)
+- [David Li](https://github.com/David-cripto)
+- [Ignat Melnikov](https://github.com/Minerkow)
+- [Irina Lebedeva](https://github.com/swnirk)
+
