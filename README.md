@@ -21,20 +21,40 @@ This approach leverages the generative model to enable the small neural network 
 ## Optimal time selection for diffusion model
 In the framework of the diffusion model for feature aggregation, the choice of the optimal diffusion time step parameter becomes paramount in determining the temporal influence of features.
 
-<p float="left">
-  <img src="[/img1.png](https://github.com/David-cripto/DiffClassification/assets/78556639/1d92b604-84c0-4f7c-a8e0-d17c369e553a)" width="100" />
-  <img src="[/img2.png](https://github.com/David-cripto/DiffClassification/assets/78556639/3f8367d7-c394-4303-936a-24f88582d970)" width="100" /> 
-</p>
-
-![image]()
-![image]()
+MNIST             |  CIFAR-10
+:-------------------------:|:-------------------------:
+![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff-mnist-step.PNG) | ![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff-cifar-step.PNG)
 
 As evident from the plots, the optimal step values for MNIST and CIFAR-10 are $100$ and $50$, respectively. Consequently, we set these timesteps as constants for subsequent experiments.
 
 ## Generation Quality
 
-![image](https://github.com/David-cripto/DiffClassification/assets/78556639/2df88f3a-64eb-4017-97f3-5f75b50dcc58)
+The efficiency of a model's generation can be directly related to its feature representation. To assess models' performance on datasets, we employed generation metrics. Specifically, we utilized the Frechet Inception Distance (FID) and Density Coverage metrics. FID measures the disparity between the distributions of generated and actual data samples in feature space, with lower FID scores indicating better performance. This metric accounts for both the accuracy and diversity of generated outputs.
+On the other hand, Density Coverage assesses a model's capability to recreate the underlying data distribution. 
 
+VAE generation             |  Diffusion generation
+:-------------------------:|:-------------------------:
+![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-cifar.PNG) | ![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-diff.PNG)
+
+
+## Features Quality
+
+Assessing the **separability of features** is an important step towards evaluation of models quality in learning the internal structure of dataset. To assess visually the quality of extracted features from generative models, we implemented code to project those features in 2- and 3-dimensional spaces using Uniform Manifold Approximation and Projection, UMAP. 
+
+Features for diffusion model:
+
+| MNIST dataset |  CIFAR-10 dataset |
+|:-------------------------:|:-------------------:|
+![MNIST](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff_mnist_umap.png) | ![MNIST](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff_cifar_umap.png) | 
+
+Features for Variational Autoencoder:
+
+| MNIST dataset |  CIFAR-10 dataset |
+|:-------------------------:|:-------------------:|
+![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-features.png) | ![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/cifar-features.png)
+
+
+# Results
 
 ## MNIST Training Results
 
