@@ -35,7 +35,7 @@ On the other hand, Density Coverage assesses a model's capability to recreate th
 
 MNIST generation             |  CIFAR-10 generation
 :-------------------------:|:-------------------------:
-![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-diff.PNG) | ![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-cifar.PNG)
+![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-diff.PNG) | ![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff-cifar-step.PNG)
 
 
 ## Features Quality
