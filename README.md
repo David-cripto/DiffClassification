@@ -65,6 +65,7 @@ options:
   -e EPOCHS, --epochs EPOCHS
                         Number of epochs
    ```
+
     ```bash
 extract_features_train_smallnet_mnist.py [-h] [-p PATH] [-d DEVICE] [-s SIZE_PER_CLASS] [-e EPOCHS]
 
@@ -94,6 +95,7 @@ options:
   -ld LATENT_DIM, --latent_dim LATENT_DIM
                         Laten space dimension
  ```
+
  ```bash
 train_vae_mnist.py [-h] [-d DEVICE] [-bs BATCH_SIZE] [-e EPOCHS] [-lr LR] [-ld LATENT_DIM]
 
