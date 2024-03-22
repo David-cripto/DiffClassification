@@ -39,11 +39,12 @@ MNIST generation             |  CIFAR-10 generation
 
 ## Features Quality
 
-Assessing the \textbf{separability of features} is an important step towards evaluation of models quality in learning the internal structure of dataset. To assess visually the quality of extracted features from generative models, we implemented code to project those features in 2- and 3-dimensional spaces using Uniform Manifold Approximation and Projection, UMAP. 
+Assessing the **separability of features** is an important step towards evaluation of models quality in learning the internal structure of dataset. To assess visually the quality of extracted features from generative models, we implemented code to project those features in 2- and 3-dimensional spaces using Uniform Manifold Approximation and Projection, UMAP. 
 
 MNIST features             |  CIFAR-10 features
 :-------------------------:|:-------------------------:
-![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-diff.PNG) | ![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-cifar.PNG)
+![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-diff.PNG) | ![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-cifar.PNG) | 
+![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-diff.PNG) | ![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-cifar.PNG) |
 
 # Results
 
