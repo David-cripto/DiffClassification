@@ -117,11 +117,11 @@ options:
 
 #### Diffusion
 
-mnist_main.ipynb -- loading pretrained weights of DDPM and feature extraction on MNIST dataset  
+mnist_main.ipynb - loading pretrained weights of DDPM and feature extraction on MNIST dataset  
 
-CIFAR_10_Diffusion_new.ipynb -- training DDPM and feature extraction on CIFAR-10 dataset 
+CIFAR_10_Diffusion_new.ipynb - training DDPM and feature extraction on CIFAR-10 dataset 
 
-supervised.ipynb -- training ResNet18 for comparising with small net trained on features extracted from DDPM on different train set sizes 
+supervised.ipynb - training ResNet18 for comparising with small net trained on features extracted from DDPM on different train set sizes 
 
 
 ## Developers
