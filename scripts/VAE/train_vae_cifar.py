@@ -2,16 +2,23 @@ from collections import defaultdict
 import torch
 import torch.optim as optim
 from tqdm import tqdm
+from torchvision import transforms, datasets
+from models.vae_cifar import ConvVAE
 
+DEVICE = 'mps'
+BATCH_SIZE = 128
+EPOCHS = 100
+LR = 0.3*1e-3       
+N_LATENS = 512      
+BETA = 1
 
-
-def train_epoch(model, train_loader, optimizer, use_cuda, loss_key='total', device='cuda'):
+def train_epoch(model, train_loader, optimizer, use_cuda, loss_key='total'):
     model.train()
 
     stats = defaultdict(list)
     for batch_idx, (x, _) in enumerate(train_loader):
         if use_cuda:
-            x = x.to(device)
+            x = x.to(DEVICE)
         losses = model.loss(x)
         optimizer.zero_grad()
         losses[loss_key].backward()
@@ -23,13 +30,13 @@ def train_epoch(model, train_loader, optimizer, use_cuda, loss_key='total', devi
     return stats
 
 
-def eval_model(model, train_loader, use_cuda, device='cuda'):
+def eval_model(model, train_loader, use_cuda):
     model.eval()
     stats = defaultdict(float)
     with torch.no_grad():
         for batch_idx, (x, _) in enumerate(train_loader):
             if use_cuda:
-                x = x.to(device)
+                x = x.to(DEVICE)
             losses = model.loss(x)
             for k, v in losses.items():
                 stats[k] += v.item() * x.shape[0]
@@ -47,8 +54,7 @@ def train_model(
     lr,
     use_tqdm=False,
     use_cuda=False,
-    loss_key='total_loss',
-    device='cuda' 
+    loss_key='total_loss', 
 ):
     optimizer = optim.Adam(model.parameters(), lr=lr)
 
@@ -56,13 +62,13 @@ def train_model(
     test_losses = defaultdict(list)
     forrange = tqdm(range(epochs)) if use_tqdm else range(epochs)
     if use_cuda:
-        model = model.to(device)
+        model = model.to(DEVICE)
 
     k = 0
     for epoch in forrange:
         model.train()
-        train_loss = train_epoch(model, train_loader, optimizer, use_cuda, loss_key, device)
-        test_loss = eval_model(model, test_loader, use_cuda, device)
+        train_loss = train_epoch(model, train_loader, optimizer, use_cuda, loss_key)
+        test_loss = eval_model(model, test_loader, use_cuda)
 
         for k in train_loss.keys():
             train_losses[k].extend(train_loss[k])
@@ -72,3 +78,38 @@ def train_model(
         print(f"{test_losses['recon_loss']=}")
 
     return dict(train_losses), dict(test_losses)
+
+def main():
+    transform = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))  # Normalize the images to [-1, 1]
+    ])
+
+    train_dataset = datasets.CIFAR10(root='./data', train=True,
+                                    download=True, transform=transform)
+    test_dataset = datasets.CIFAR10(root='./data', train=False,
+                                    download=True, transform=transform)
+
+    train_loader =  torch.utils.data.DataLoader(train_dataset, batch_size=128, shuffle=True)
+    test_loader =  torch.utils.data.DataLoader(test_dataset, batch_size=128, shuffle=False)
+
+    model = ConvVAE((3, 32, 32), N_LATENS, BETA, device=DEVICE)
+    optimizer = optim.Adam(model.parameters(), lr=LR)
+
+    train_losses, test_losses = train_model(
+        model, 
+        train_loader, 
+        test_loader, 
+        epochs=EPOCHS, 
+        lr=LR, 
+        loss_key='elbo_loss', 
+        use_tqdm=True, 
+        use_cuda=True, 
+    )
+
+    torch.save(model.state_dict(), 'conv_vae_cifar_additional_training.pth')
+
+    print("Training complete")
+
+if __name__ == '__main__':
+    main()

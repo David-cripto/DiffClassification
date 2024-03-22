@@ -2,7 +2,13 @@ import torch.optim as optim
 from tqdm import tqdm
 import torch
 import torch.nn.functional as F
+from torchvision import transforms, datasets
+from models.vae_mnist import ConvVAE
 
+PATH_FOR_PTH = 'conv_vae_mnist.pth'
+LATENT_DIM = 6
+DEVICE = 'cuda'
+EPOCHS = 10
 
 # Loss function for VAE
 def vae_loss(reconstructed_x, x, mu, logvar):
@@ -43,3 +49,47 @@ def train_model(model, epochs, train_loader, lr=1e-3, device='cuda'):
             #           f"({100. * batch_idx / len(mnist_loader):.0f}%)]\tLoss: {loss.item() / len(data):.6f}")
         print(f'Epoch {epoch}, Loss: {loss}')
     return loss_arr
+
+def main():
+    transform = transforms.ToTensor()
+
+    # download data for training
+    mnist_data = datasets.MNIST(root='./todata', train=True,
+                                download=True, transform = transform)
+
+    # set dataloader
+    data_loader = torch.utils.data.DataLoader(dataset = mnist_data,
+                                            batch_size = 64,
+                                            shuffle = True)
+    # download data for test
+    test_data = datasets.MNIST(root='./data', train=False,
+                                download=True, transform = transform)
+    
+    device = DEVICE
+
+    latent_dim = LATENT_DIM
+    conv_vae = ConvVAE(latent_dim).to(device)
+
+    optimizer = optim.Adam(conv_vae.parameters(), lr=1e-3)
+
+    mnist_data = datasets.MNIST(root='./data', train=True,
+                                download=True, transform = transform)
+
+    # set dataloader
+    mnist_loader = torch.utils.data.DataLoader(dataset = mnist_data,
+                                            batch_size = 64,
+                                            shuffle = True)
+    # download data for test
+    test_data = datasets.MNIST(root='./data', train=False,
+                                download=True, transform = transform)
+
+    # Training loop
+    epochs = EPOCHS
+    loss_arr = train_model(conv_vae, epochs, mnist_loader, device=device)
+
+    torch.save(conv_vae.state_dict(), PATH_FOR_PTH)
+
+    print("Training complete")
+
+if __name__ == '__main__':
+    main()
