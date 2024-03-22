@@ -54,6 +54,8 @@ Training nonlinear (Linear+ReLU+Linear) model (since it was the best on MNIST) o
 
 ## Scripts Usage
 
+#### VAE
+
    ```bash
   extract_features_train_smallnet_cifar.py [-h] [-p PATH] [-d DEVICE] [-s SIZE_PER_CLASS] [-e EPOCHS]
 options:
@@ -113,7 +115,13 @@ options:
  ```
 
 
+#### Diffusion
 
+mnist_main.ipynb -- loading pretrained weights of DDPM and feature extraction on MNIST dataset  
+
+CIFAR_10_Diffusion_new.ipynb -- training DDPM and feature extraction on CIFAR-10 dataset 
+
+supervised.ipynb -- training ResNet18 for comparising with small net trained on features extracted from DDPM on different train set sizes 
 
 
 ## Developers
