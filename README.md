@@ -112,8 +112,13 @@ options:
                         Laten space dimension
  ```
 
+## Pretrained weights
 
+Pretrained VAE models: https://drive.google.com/drive/folders/1UrXq-gdDHtKQBUMxOc-oiawpqYo2ozga?usp=share_link
 
+Pretrained diffusion model for CIFAR-10: https://drive.google.com/file/d/1ICLWfz3Wu8cVQhJUBOcxlEuGsw6zbaFL/view?usp=drive_link
+
+Pretrained diffusion model for MNIST: https://drive.google.com/uc?id=1fSPB08M6aBNmhjRgSn3qpdq5hXl1Xhao
 
 
 ## Developers
