@@ -1,5 +1,5 @@
 import torch
-import models.vae_cifar as vae_cifar
+import diffclassification.vae_cifar as vae_cifar
 from diffclassification.smallnet import LinearNet, Net, split_dataset
 from torch.utils.data import DataLoader, Dataset, Subset
 from tqdm import tqdm
@@ -198,7 +198,7 @@ if __name__ == '__main__':
     parser.add_argument('-p', '--path', type=str, help='Path of weights', default=PTH)
     parser.add_argument('-d', '--device', type=str, help='Device for training', default=DEVICE)
     parser.add_argument('-s', '--size_per_class', type=int, help='Number of images per class', default=SIZE_PER_CLASS)
-    parser.add_argument('-s', '--epochs', type=int, help='Number of epochs', default=EPOCHS)
+    parser.add_argument('-e', '--epochs', type=int, help='Number of epochs', default=EPOCHS)
 
     args = parser.parse_args()
 
