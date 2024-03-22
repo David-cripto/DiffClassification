@@ -45,7 +45,7 @@ Features for diffusion model:
 
 | MNIST dataset |  CIFAR-10 dataset |
 |:-------------------------:|:-------------------:|
-| ![MNIST](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff_mnist_umap.png) | ![MNIST](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff_cifar_umap.png) | 
+![MNIST](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff_mnist_umap.png) | ![MNIST](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff_cifar_umap.png) | 
 
 Features for Variational Autoencoder:
 
