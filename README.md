@@ -32,7 +32,7 @@ As evident from the plots, the optimal step values for MNIST and CIFAR-10 are $1
 The efficiency of a model's generation can be directly related to its feature representation. To assess models' performance on datasets, we employed generation metrics. Specifically, we utilized the Frechet Inception Distance (FID) and Density Coverage metrics. FID measures the disparity between the distributions of generated and actual data samples in feature space, with lower FID scores indicating better performance. This metric accounts for both the accuracy and diversity of generated outputs.
 On the other hand, Density Coverage assesses a model's capability to recreate the underlying data distribution. 
 
-MNIST generation             |  CIFAR-10 generation
+VAE generation             |  Diffusion generation
 :-------------------------:|:-------------------------:
 ![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-diff.PNG) | ![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-cifar.PNG)
 
