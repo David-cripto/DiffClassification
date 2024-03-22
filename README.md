@@ -23,8 +23,7 @@ In the framework of the diffusion model for feature aggregation, the choice of t
 
 Solarized dark             |  Solarized Ocean
 :-------------------------:|:-------------------------:
-![image](https://github.com/David-cripto/DiffClassification/assets/78556639/1d92b604-84c0-4f7c-a8e0-d17c369e553a)  |  ![image](https://github.com/David-cripto/DiffClassification/assets/78556639/3f8367d7-c394-4303-936a-24f88582d970)
-
+![image](https://github.com/David-cripto/DiffClassification/assets/78556639/1d92b604-84c0-4f7c-a8e0-d17c369e553a)  |  ![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff-cifar-step.PNG)
 
 As evident from the plots, the optimal step values for MNIST and CIFAR-10 are $100$ and $50$, respectively. Consequently, we set these timesteps as constants for subsequent experiments.
 
