@@ -9,12 +9,10 @@ Traditional supervised classification approaches limit the scalability and train
 ![image](https://github.com/David-cripto/DiffClassification/assets/78556639/cbe5f13e-c6f2-4021-bf86-dca3c87d5d6c)
 
 Given a scenario where we possess a small labeled dataset alongside a larger unlabeled dataset, we can approach classification through the following steps:
-
 -Train a generative model on the unlabeled dataset to learn the underlying data distribution.
-
 -Utilize the trained generative model to extract more representative features for the labeled images, effectively enriching the feature space.
-
 -Train a small neural network using the enriched features to make predictions for the corresponding labels.
+
 This approach leverages the generative model to enable the small neural network to make accurate predictions despite the limited labeled data.
 
 
