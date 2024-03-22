@@ -4,6 +4,7 @@ import torch.optim as optim
 from tqdm import tqdm
 from torchvision import transforms, datasets
 from models.vae_cifar import ConvVAE
+import argparse
 
 DEVICE = 'cuda'
 BATCH_SIZE = 128
@@ -111,5 +112,22 @@ def main():
 
     print("Training complete")
 
+
 if __name__ == '__main__':
+   
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--device', type=str, help='Device for training', default=DEVICE)
+    parser.add_argument('-bs', '--batch_size', type=int, help='Batch size', default=BATCH_SIZE)
+    parser.add_argument('-e', '--epochs', type=int, help='Number of epochs', default=EPOCHS)
+    parser.add_argument('-lr', '--lr', type=float, help='Learning rate', default=LR)
+    parser.add_argument('-ld', '--latent_dim', type=int, help='Laten space dimension', default=N_LATENS)
+
+    args = parser.parse_args()
+
+    DEVICE = args.device
+    BATCH_SIZE = args.batch_size
+    EPOCHS = args.epochs
+    LR = args.lr
+    N_LATENS = args.latent_dim
+
     main()

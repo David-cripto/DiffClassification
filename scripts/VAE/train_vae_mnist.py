@@ -4,11 +4,14 @@ import torch
 import torch.nn.functional as F
 from torchvision import transforms, datasets
 from models.vae_mnist import ConvVAE
+import argparse
 
-PATH_FOR_PTH = 'conv_vae_mnist.pth'
+
 LATENT_DIM = 6
 DEVICE = 'cuda'
 EPOCHS = 10
+LR = 1e-3
+BATCH_SIZE = 64
 
 # Loss function for VAE
 def vae_loss(reconstructed_x, x, mu, logvar):
@@ -59,7 +62,7 @@ def main():
 
     # set dataloader
     data_loader = torch.utils.data.DataLoader(dataset = mnist_data,
-                                            batch_size = 64,
+                                            batch_size = BATCH_SIZE,
                                             shuffle = True)
     # download data for test
     test_data = datasets.MNIST(root='./data', train=False,
@@ -70,7 +73,7 @@ def main():
     latent_dim = LATENT_DIM
     conv_vae = ConvVAE(latent_dim).to(device)
 
-    optimizer = optim.Adam(conv_vae.parameters(), lr=1e-3)
+    optimizer = optim.Adam(conv_vae.parameters(), lr=LR)
 
     mnist_data = datasets.MNIST(root='./data', train=True,
                                 download=True, transform = transform)
@@ -87,9 +90,25 @@ def main():
     epochs = EPOCHS
     loss_arr = train_model(conv_vae, epochs, mnist_loader, device=device)
 
-    torch.save(conv_vae.state_dict(), PATH_FOR_PTH)
+    # torch.save(conv_vae.state_dict(), PATH_FOR_PTH)
 
     print("Training complete")
 
 if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--device', type=str, help='Device for training', default=DEVICE)
+    parser.add_argument('-bs', '--batch_size', type=int, help='Batch size', default=BATCH_SIZE)
+    parser.add_argument('-e', '--epochs', type=int, help='Number of epochs', default=EPOCHS)
+    parser.add_argument('-lr', '--lr', type=float, help='Learning rate', default=LR)
+    parser.add_argument('-ld', '--latent_dim', type=int, help='Laten space dimension', default=LATENT_DIM)
+
+    args = parser.parse_args()
+
+    DEVICE = args.device
+    BATCH_SIZE = args.batch_size
+    EPOCHS = args.epochs
+    LR = args.lr
+    LATENT_DIM = args.latent_dim
+
     main()
