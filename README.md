@@ -20,8 +20,14 @@ This approach leverages the generative model to enable the small neural network 
 
 ## Optimal time selection for diffusion model
 In the framework of the diffusion model for feature aggregation, the choice of the optimal diffusion time step parameter becomes paramount in determining the temporal influence of features.
-![image](https://github.com/David-cripto/DiffClassification/assets/78556639/1d92b604-84c0-4f7c-a8e0-d17c369e553a)
-![image](https://github.com/David-cripto/DiffClassification/assets/78556639/3f8367d7-c394-4303-936a-24f88582d970)
+
+<p float="left">
+  <img src="[/img1.png](https://github.com/David-cripto/DiffClassification/assets/78556639/1d92b604-84c0-4f7c-a8e0-d17c369e553a)" width="100" />
+  <img src="[/img2.png](https://github.com/David-cripto/DiffClassification/assets/78556639/3f8367d7-c394-4303-936a-24f88582d970)" width="100" /> 
+</p>
+
+![image]()
+![image]()
 
 As evident from the plots, the optimal step values for MNIST and CIFAR-10 are $100$ and $50$, respectively. Consequently, we set these timesteps as constants for subsequent experiments.
 
@@ -114,6 +120,14 @@ options:
                         Laten space dimension
  ```
 
+## Pretrained weights
+
+Pretrained VAE models: https://drive.google.com/drive/folders/1UrXq-gdDHtKQBUMxOc-oiawpqYo2ozga?usp=share_link
+
+
+Pretrained diffusion model for CIFAR-10: https://drive.google.com/file/d/1ICLWfz3Wu8cVQhJUBOcxlEuGsw6zbaFL/view?usp=drive_link
+
+Pretrained diffusion model for MNIST: https://drive.google.com/uc?id=1fSPB08M6aBNmhjRgSn3qpdq5hXl1Xhao
 
 #### Diffusion
 
@@ -122,6 +136,7 @@ mnist_main.ipynb - loading pretrained weights of DDPM and feature extraction on 
 CIFAR_10_Diffusion_new.ipynb - training DDPM and feature extraction on CIFAR-10 dataset 
 
 supervised.ipynb - training ResNet18 for comparising with small net trained on features extracted from DDPM on different train set sizes 
+
 
 
 ## Developers
