@@ -29,8 +29,12 @@ As evident from the plots, the optimal step values for MNIST and CIFAR-10 are $1
 
 ## Generation Quality
 
-![image](https://github.com/David-cripto/DiffClassification/assets/78556639/2df88f3a-64eb-4017-97f3-5f75b50dcc58)
+The efficiency of a model's generation can be directly related to its feature representation. To assess models' performance on datasets, we employed generation metrics. Specifically, we utilized the Frechet Inception Distance (FID) and Density Coverage metrics. FID measures the disparity between the distributions of generated and actual data samples in feature space, with lower FID scores indicating better performance. This metric accounts for both the accuracy and diversity of generated outputs.
+On the other hand, Density Coverage assesses a model's capability to recreate the underlying data distribution. 
 
+MNIST             |  CIFAR-10
+:-------------------------:|:-------------------------:
+![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff-cifar-step.PNG) | ![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-diff.PNG)
 
 ## MNIST Training Results
 
