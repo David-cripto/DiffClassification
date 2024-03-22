@@ -5,7 +5,7 @@ from torch.utils.data import DataLoader, Dataset, Subset
 from tqdm import tqdm
 from torchvision import transforms, datasets
 from torch import nn, optim
-
+import argparse
 
 
 PTH = 'conv_vae_mnist.pth'
@@ -160,4 +160,18 @@ def main():
 
 
 if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-p', '--path', type=str, help='Path of weights', default=PTH)
+    parser.add_argument('-d', '--device', type=str, help='Device for training', default=DEVICE)
+    parser.add_argument('-s', '--size_per_class', type=int, help='Number of images per class', default=SIZE_PER_CLASS)
+    parser.add_argument('-s', '--epochs', type=int, help='Number of epochs', default=EPOCHS)
+
+    args = parser.parse_args()
+
+    PTH = args.path
+    DEVICE = args.device
+    SIZE_PER_CLASS = args.size_per_class
+    EPOCHS = args.epochs
+    
     main()
