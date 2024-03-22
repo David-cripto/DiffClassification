@@ -34,8 +34,7 @@ On the other hand, Density Coverage assesses a model's capability to recreate th
 
 VAE generation             |  Diffusion generation
 :-------------------------:|:-------------------------:
-![image](
-https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-features.png) | ![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/cifar-features.png)
+![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-cifar.PNG) | ![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-diff.PNG)
 
 
 ## Features Quality
@@ -52,7 +51,7 @@ Features for Variational Autoencoder:
 
 | MNIST dataset |  CIFAR-10 dataset |
 |:-------------------------:|:-------------------:|
-| ![MNIST](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff_mnist_umap.png) | ![CIFAR-10](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-cifar.PNG) | ![MNIST](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff_cifar_umap.png) | ![CIFAR-10](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-generation-cifar.PNG) |
+![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/mnist-features.png) | ![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/cifar-features.png)
 
 
 # Results
