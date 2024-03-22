@@ -23,8 +23,8 @@ In the framework of the diffusion model for feature aggregation, the choice of t
 
 MNIST             |  CIFAR-10
 :-------------------------:|:-------------------------:
-<img src="https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff-mnist-step.PNG" width="200" /> |  
-<img src="https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff-cifar-step.PNG" width="200" />
+![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff-mnist-step.PNG) |  
+![image](https://github.com/David-cripto/DiffClassification/blob/kzGarifullin-patch-1/assets/MNIST/diff-cifar-step.PNG)
 
 As evident from the plots, the optimal step values for MNIST and CIFAR-10 are $100$ and $50$, respectively. Consequently, we set these timesteps as constants for subsequent experiments.
 
