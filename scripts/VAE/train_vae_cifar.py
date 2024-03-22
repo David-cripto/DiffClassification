@@ -5,7 +5,7 @@ from tqdm import tqdm
 from torchvision import transforms, datasets
 from models.vae_cifar import ConvVAE
 
-DEVICE = 'mps'
+DEVICE = 'cuda'
 BATCH_SIZE = 128
 EPOCHS = 100
 LR = 0.3*1e-3       
